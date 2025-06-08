@@ -1,0 +1,24 @@
+.navigation {
+  display: flex;
+  padding: 15px;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  font-size: 30px;
+  background-color: var(--primary-dark);
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  box-shadow: var(--card-shadow);
+}
+
+.active {
+  color: var(--accent);
+  background-color: var(--border);
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: var(--card-shadow);
+}
+
+.active:hover {
+  scale: 1.05;
+}
