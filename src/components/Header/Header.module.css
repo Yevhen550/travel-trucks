@@ -1,6 +1,6 @@
 .header {
-  background-color: var(--color-inputs-rgba);
-  border-bottom: 1px solid var(--color-badges-rgba);
+  background-color: var(--color-inputs);
+  border-bottom: 1px solid var(--color-badges);
   padding: 24px 0;
 }
 

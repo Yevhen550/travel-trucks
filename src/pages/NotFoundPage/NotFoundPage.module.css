@@ -1,11 +1,10 @@
 .boxNotFound {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  .notFoundText {
-    font-size: 25px;
-    color: tomato;
-  }
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.notFoundText {
+  font-size: 25px;
+  color: tomato;
+}

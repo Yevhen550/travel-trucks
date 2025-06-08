@@ -1,0 +1,27 @@
+:root {
+  --color-main: rgba(16, 24, 40, 1);
+  --color-white: rgba(255, 255, 255, 1);
+  --color-text: rgba(71, 84, 103, 1);
+  --color-inputs: rgba(247, 247, 247, 1);
+  --color-badges: rgba(242, 244, 247, 1);
+  --color-button: rgba(228, 72, 72, 1);
+  --color-button-hover: rgba(216, 67, 67, 1);
+  --color-gray: rgba(108, 113, 123, 1);
+  --color-gray-light: rgba(218, 221, 225, 1);
+
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: var(--color-main);
+  background-color: var(--color-white);
+
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
