@@ -1,0 +1,28 @@
+.wrapper {
+  padding: 20px 0;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding: 0;
+  list-style: none;
+}
+
+.tag {
+  background-color: var(--color-badges);
+  color: var(--color-main);
+  border-radius: 20px;
+  padding: 6px 12px;
+  font-size: 0.9rem;
+}
+
+.table {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 20px;
+  font-size: 0.95rem;
+  color: var(--color-text);
+}

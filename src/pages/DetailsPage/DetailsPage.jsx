@@ -1,6 +1,7 @@
 import { useParams, useNavigate, Outlet, NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import BookingForm from "../../components/BookingForm/BookingForm";
 import s from "./DetailsPage.module.css";
 
 const DetailsPage = () => {
@@ -23,10 +24,11 @@ const DetailsPage = () => {
         setLoading(false);
       }
     };
+
     fetchCamper();
   }, [truckId, navigate]);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <p className={s.loading}>Loading...</p>;
   if (!camper) return null;
 
   return (
@@ -35,8 +37,28 @@ const DetailsPage = () => {
         &larr; Back
       </button>
 
-      <h1 className={s.title}>{camper.name}</h1>
-      <img className={s.image} src={camper.gallery?.[0]} alt={camper.name} />
+      <div className={s.headerRow}>
+        <div>
+          <h1 className={s.title}>{camper.name}</h1>
+          <div className={s.meta}>
+            <span className={s.rating}>⭐ {camper.rating} Reviews</span>
+            <span className={s.location}>📍 {camper.location}</span>
+          </div>
+          <p className={s.price}>€{camper.price.toFixed(2)}</p>
+        </div>
+      </div>
+
+      <div className={s.galleryGrid}>
+        {camper.gallery?.map((img, index) => (
+          <div key={index} className={s.imageWrapper}>
+            <img
+              src={img.original}
+              alt={`Gallery ${index + 1}`}
+              className={s.galleryImage}
+            />
+          </div>
+        ))}
+      </div>
 
       <p className={s.description}>{camper.description}</p>
 
@@ -60,7 +82,14 @@ const DetailsPage = () => {
         </NavLink>
       </nav>
 
-      <Outlet context={{ camper }} />
+      <div className={s.mainSection}>
+        <div className={s.left}>
+          <Outlet context={{ camper }} />
+        </div>
+        <div className={s.right}>
+          <BookingForm />
+        </div>
+      </div>
     </div>
   );
 };
