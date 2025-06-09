@@ -3,9 +3,9 @@ import { fetchCampers } from "../API/campersApi";
 
 export const getCampers = createAsyncThunk(
   "campers/getCampers",
-  async (_, thunkAPI) => {
+  async (page, thunkAPI) => {
     try {
-      const data = await fetchCampers();
+      const data = await fetchCampers(page);
       return data;
     } catch (err) {
       return thunkAPI.rejectWithValue(err.message);
@@ -15,6 +15,8 @@ export const getCampers = createAsyncThunk(
 
 const initialState = {
   items: [],
+  page: 1,
+  hasMore: true,
   loading: false,
   error: null,
 };
@@ -22,6 +24,14 @@ const initialState = {
 const campersSlice = createSlice({
   name: "campers",
   initialState,
+  reducers: {
+    resetCampers: (state) => {
+      state.items = [];
+      state.page = 1;
+      state.hasMore = true;
+      state.error = null;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getCampers.pending, (state) => {
@@ -29,7 +39,15 @@ const campersSlice = createSlice({
         state.error = null;
       })
       .addCase(getCampers.fulfilled, (state, action) => {
-        state.items = action.payload.items;
+        const newItems = Array.isArray(action.payload)
+          ? action.payload
+          : Array.isArray(action.payload?.items)
+          ? action.payload.items
+          : [];
+
+        state.items = [...state.items, ...newItems];
+        state.page += 1;
+        state.hasMore = newItems.length > 0;
         state.loading = false;
       })
       .addCase(getCampers.rejected, (state, action) => {
@@ -39,4 +57,5 @@ const campersSlice = createSlice({
   },
 });
 
+export const { resetCampers } = campersSlice.actions;
 export default campersSlice.reducer;

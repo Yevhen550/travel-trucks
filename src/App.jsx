@@ -5,7 +5,6 @@ import DetailsPage from "./pages/DetailsPage/DetailsPage";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 import Reviews from "./components/Reviews/Reviews";
 import Features from "./components/Features/Features";
-import Container from "./components/Container/Container";
 
 const CatalogPage = lazy(() => import("./pages/CatalogPage/CatalogPage"));
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));

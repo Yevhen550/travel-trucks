@@ -17,3 +17,47 @@
   flex-direction: column;
   gap: 20px;
 }
+.loadMore {
+  margin: 20px auto;
+  padding: 10px 20px;
+  background-color: #e44848;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.loadMore:hover {
+  background-color: #d04343;
+}
+.loadMoreButton {
+  display: block;
+  margin: 24px auto;
+  padding: 12px 32px;
+  font-size: 16px;
+  font-weight: 600;
+  background-color: #e44848;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.loadMoreButton:hover {
+  background-color: #d84343;
+  transform: translateY(-1px);
+}
+
+.loadMoreButton:active {
+  transform: translateY(1px);
+}
+
+@media (max-width: 768px) {
+  .loadMoreButton {
+    width: 80%;
+    padding: 12px;
+  }
+}

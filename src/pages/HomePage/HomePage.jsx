@@ -1,6 +1,13 @@
+import { useNavigate } from "react-router-dom";
 import s from "./homePage.module.css";
 
 const HomePage = () => {
+  const navigate = useNavigate();
+
+  const handleViewClick = () => {
+    navigate("/catalog");
+  };
+
   return (
     <section className={s.heroSection}>
       <div className={s.overlay}>
@@ -8,7 +15,9 @@ const HomePage = () => {
         <p className={s.subtitle}>
           You can find everything you want in our catalog
         </p>
-        <button className={s.button}>View Now</button>
+        <button className={s.button} onClick={handleViewClick}>
+          View Now
+        </button>
       </div>
     </section>
   );
