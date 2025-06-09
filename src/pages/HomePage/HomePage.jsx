@@ -1,7 +1,17 @@
-import s from "./HomePage.module.css";
+import s from "./homePage.module.css";
 
 const HomePage = () => {
-  return <div>HomePage</div>;
+  return (
+    <section className={s.heroSection}>
+      <div className={s.overlay}>
+        <h1 className={s.title}>Campers of your dreams</h1>
+        <p className={s.subtitle}>
+          You can find everything you want in our catalog
+        </p>
+        <button className={s.button}>View Now</button>
+      </div>
+    </section>
+  );
 };
 
 export default HomePage;

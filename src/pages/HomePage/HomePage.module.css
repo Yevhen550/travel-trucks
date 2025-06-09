@@ -1,0 +1,45 @@
+.heroSection {
+  position: relative;
+  height: 100vh;
+  background-image: url("../../public/images/Picture.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  padding-left: 72px;
+  padding-right: 72px;
+}
+
+.overlay {
+  max-width: 600px;
+  color: #ffffff;
+}
+
+.title {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.subtitle {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 32px;
+}
+
+.button {
+  background-color: #e44848;
+  color: #ffffff;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 100px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #d84343;
+}

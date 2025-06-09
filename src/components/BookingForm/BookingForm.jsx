@@ -16,20 +16,20 @@ const BookingForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Booking submitted:", formData);
-    alert("Booking submitted successfully!");
+    console.log("Booking request:", formData);
+    alert("Request sent!");
     setFormData({ name: "", email: "", date: "", comment: "" });
   };
 
   return (
-    <div className={s.formBox}>
+    <div className={s.box}>
       <h3 className={s.title}>Book your campervan now</h3>
       <p className={s.subtitle}>
         Stay connected! We are always ready to help you.
       </p>
-
-      <form className={s.form} onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className={s.form}>
         <input
+          className={s.input}
           type="text"
           name="name"
           placeholder="Name*"
@@ -38,6 +38,7 @@ const BookingForm = () => {
           required
         />
         <input
+          className={s.input}
           type="email"
           name="email"
           placeholder="Email*"
@@ -46,6 +47,7 @@ const BookingForm = () => {
           required
         />
         <input
+          className={s.input}
           type="date"
           name="date"
           placeholder="Booking date*"
@@ -54,12 +56,14 @@ const BookingForm = () => {
           required
         />
         <textarea
+          className={s.textarea}
           name="comment"
           placeholder="Comment"
           value={formData.comment}
           onChange={handleChange}
+          rows="3"
         />
-        <button type="submit" className={s.submitBtn}>
+        <button type="submit" className={s.button}>
           Send
         </button>
       </form>

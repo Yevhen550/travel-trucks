@@ -7,7 +7,7 @@
   --color-button: rgba(228, 72, 72, 1);
   --color-button-hover: rgba(216, 67, 67, 1);
   --color-gray: rgba(108, 113, 123, 1);
-  --color-gray-light: rgba(218, 221, 225, 1);
+  --color-gray-light: rgb(218, 221, 225);
 
   font-family: "Inter", sans-serif;
   font-weight: 400;

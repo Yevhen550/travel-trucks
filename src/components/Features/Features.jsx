@@ -4,72 +4,85 @@ import s from "./Features.module.css";
 const Features = () => {
   const { camper } = useOutletContext();
 
-  const {
-    form,
-    length,
-    width,
-    height,
-    tank,
-    consumption,
-    AC,
-    bathroom,
-    kitchen,
-    TV,
-    radio,
-    refrigerator,
-    microwave,
-    gas,
-    water,
-    transmission,
-    engine,
-  } = camper;
+  if (!camper) return null;
 
-  const featuresList = [
-    { label: "AC", value: AC },
-    { label: "Bathroom", value: bathroom },
-    { label: "Kitchen", value: kitchen },
-    { label: "TV", value: TV },
-    { label: "Radio", value: radio },
-    { label: "Refrigerator", value: refrigerator },
-    { label: "Microwave", value: microwave },
-    { label: "Gas", value: gas },
-    { label: "Water", value: water },
-    { label: "Transmission", value: transmission },
-    { label: "Engine", value: engine },
-  ];
+  const { form, length, width, height, tank, consumption } = camper;
+
+  const rawFeatures = {
+    AC: camper.AC,
+    Bathroom: camper.bathroom,
+    TV: camper.TV,
+    Radio: camper.radio,
+    Microwave: camper.microwave,
+    Water: camper.water,
+    Transmission: camper.transmission,
+    Engine: camper.engine,
+    Kitchen: camper.kitchen,
+    Petrol: camper.gas,
+  };
+
+  const features = Object.entries(rawFeatures)
+    .filter(([_, value]) => value === true || typeof value === "string")
+    .map(([key]) => key);
+
+  const iconMap = {
+    AC: "wind",
+    Bathroom: "ph_shower",
+    TV: "tv",
+    Radio: "ui-radios",
+    Microwave: "lucide_microwave",
+    Water: "ion_water-outline",
+    Transmission: "bi_grid-1x2",
+    Engine: "diagram",
+    Kitchen: "hugeicons_gas-stove",
+    Petrol: "fuel-pump",
+  };
 
   return (
-    <div className={s.wrapper}>
-      <ul className={s.tags}>
-        {featuresList.map(
-          (item) =>
-            item.value && (
-              <li key={item.label} className={s.tag}>
-                {item.label}
-              </li>
-            )
-        )}
+    <div className={s.container}>
+      <ul className={s.badges}>
+        {features.map((feature) => (
+          <li key={feature} className={s.badge}>
+            <svg className={s.icon} width="20" height="20">
+              <use
+                href={`${import.meta.env.BASE_URL}icons/sprite.svg#${
+                  iconMap[feature]
+                }`}
+              />
+            </svg>
+            <span className={s.badgeLabel}>{feature}</span>
+          </li>
+        ))}
       </ul>
 
-      <div className={s.table}>
-        <p>
-          <b>Form:</b> {form}
-        </p>
-        <p>
-          <b>Length:</b> {length}
-        </p>
-        <p>
-          <b>Width:</b> {width}
-        </p>
-        <p>
-          <b>Height:</b> {height}
-        </p>
-        <p>
-          <b>Tank:</b> {tank}
-        </p>
-        <p>
-          <b>Consumption:</b> {consumption}
-        </p>
+      <div className={s.detailsBox}>
+        <h3 className={s.subtitle}>Vehicle details</h3>
+        <ul className={s.table}>
+          <li className={s.row}>
+            <span className={s.label}>Form</span>
+            <span className={s.value}>{form}</span>
+          </li>
+          <li className={s.row}>
+            <span className={s.label}>Length</span>
+            <span className={s.value}>{length} m</span>
+          </li>
+          <li className={s.row}>
+            <span className={s.label}>Width</span>
+            <span className={s.value}>{width} m</span>
+          </li>
+          <li className={s.row}>
+            <span className={s.label}>Height</span>
+            <span className={s.value}>{height} m</span>
+          </li>
+          <li className={s.row}>
+            <span className={s.label}>Tank</span>
+            <span className={s.value}>{tank} l</span>
+          </li>
+          <li className={s.row}>
+            <span className={s.label}>Consumption</span>
+            <span className={s.value}>{consumption}l/100km</span>
+          </li>
+        </ul>
       </div>
     </div>
   );

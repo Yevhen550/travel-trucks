@@ -1,8 +1,11 @@
 .reviews {
-  padding: 20px 0;
   display: flex;
+  width: 631px;
+  padding: 44px 80px;
   flex-direction: column;
-  gap: 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
 }
 
 .reviewItem {
@@ -12,11 +15,11 @@
 }
 
 .avatar {
-  width: 40px;
-  height: 40px;
-  background-color: var(--color-button);
-  color: var(--color-white);
-  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  background-color: #f2f4f7;
+  color: var(--color-button);
+  border-radius: 60%;
   font-weight: bold;
   font-size: 1.1rem;
   display: flex;

@@ -30,7 +30,6 @@ const DetailsPage = () => {
 
   if (loading) return <p className={s.loading}>Loading...</p>;
   if (!camper) return null;
-
   return (
     <div className={s.container}>
       <button onClick={() => navigate(-1)} className={s.backButton}>
